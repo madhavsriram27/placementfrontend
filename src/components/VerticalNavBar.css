@@ -1,0 +1,39 @@
+/* Vertical Nav Styles */
+.vertical-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #28a745; /* Green background color */
+    padding: 20px;
+    width: 220px; /* Width of the vertical nav */
+    height: 100vh; /* Full viewport height */
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
+    z-index: 1000; /* Ensure it is above other content */
+}
+
+.vertical-nav button,
+.vertical-nav select {
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.vertical-nav button:hover,
+.vertical-nav select:hover {
+    background: #f8f9fa;
+}
+
+/* Select Styling */
+.vertical-nav select {
+    width: 100%;
+    background: #fff;
+}

@@ -1,0 +1,27 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    position: relative; /* Ensure positioning context for the button */
+    height: 40px; /* Define a height for the navbar */
+}
+
+.home-button {
+    background-color: #dc3545; /* Red background for the home button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+    position: absolute; /* Position the button absolutely */
+    top: 50%; /* Vertically center the button */
+    left: 10px; /* Distance from the left edge */
+    transform: translateY(-50%); /* Center the button vertically */
+}
+
+.home-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}

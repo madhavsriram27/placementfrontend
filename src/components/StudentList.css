@@ -1,0 +1,41 @@
+.student-list {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.student-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Reduce the gap between cards */
+    margin-left: 0; /* Start from the edge of the container */
+}
+
+.student-card {
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    padding: 10px; /* Reduce padding inside each card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: background-color 0.3s;
+    width: calc(18% - 10px); /* Reduce the width to fit 5 cards per row */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.student-card.placed {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.student-card.not-placed {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.student-card:hover {
+    background-color: #e2e6ea;
+}
