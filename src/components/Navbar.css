@@ -1,27 +1,48 @@
+/* Navbar Styles */
 .navbar {
+    display: flex !important;
+    align-items: center !important;
+    background-color: orange !important; /* Background color of the navbar */
+    padding: 10px !important;
+    height: 57px !important; /* Define a height for the navbar */
+    position: fixed !important; /* Fix the navbar to the top */
+    top: 0 !important; /* Align to the top of the viewport */
+    left: 0 !important; /* Align to the left of the viewport */
+    width: 100% !important; /* Ensure it spans the full width */
+    z-index: 1000 !important; /* Ensure it stays above other content */
+    justify-content: flex-start !important; /* Align items to the start of the container */
+}
+
+.navbar-logo {
+    height: 75px !important; /* Adjust the size of the logo */
+    margin-right: 15px !important; /* Space between logo and button */
+    width: 130px !important; /* Adjust the size of the logo */
+}
+
+.navbar-menu {
+    list-style: none;
     display: flex;
-    align-items: center;
-    background-color: #333;
-    padding: 10px;
-    position: relative; /* Ensure positioning context for the button */
-    height: 40px; /* Define a height for the navbar */
+    gap: 20px;
 }
 
-.home-button {
-    background-color: #dc3545; /* Red background for the home button */
-    color: white;
-    border: none;
-    padding: 10px 20px;
+.navbar-menu li {
+    margin: 0;
+}
+
+.navbar-menu a {
+    color: #fff;
+    text-decoration: none;
     font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.3s;
-    position: absolute; /* Position the button absolutely */
-    top: 50%; /* Vertically center the button */
-    left: 10px; /* Distance from the left edge */
-    transform: translateY(-50%); /* Center the button vertically */
 }
 
-.home-button:hover {
-    background-color: #c82333; /* Darker red on hover */
+.navbar-search {
+    position: relative;
+    margin-left: 180px;
+}
+
+.navbar-search input {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
 }

@@ -1,14 +1,22 @@
+
 .student-card {
     background-color: #f8f9fa; /* Light background for cards */
     border: 2px solid #dee2e6; /* Light border */
-    border-radius: 12px; /* Rounded corners */
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better appearance */
-    width: 150px; /* Width of each card */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Consistent padding inside the card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 120px !important; /* Fixed width of each card */
+    height: 120px !important; /* Fixed height of each card */
     text-align: center; /* Center text inside the card */
     transition: background-color 0.3s;
     margin: 10px; /* Space around each card */
+    display: flex; /* Flexbox for alignment */
+    flex-direction: column; /* Column layout */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    font-size: 14px; /* Adjusted text size */
 }
+
 
 .student-card.placed {
     background-color: #d4edda; /* Light green for placed students */

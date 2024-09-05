@@ -1,14 +1,17 @@
 .student-list {
     padding: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+    height: 2000px;
 }
 
 .student-cards-container {
     display: flex;
     flex-wrap: wrap;
+    width:1300px;
+    margin-left:520px;
     gap: 10px; /* Reduce the gap between cards */
-    margin-left: 0; /* Start from the edge of the container */
+ 
 }
 
 .student-card {

@@ -1,28 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
+import logo from './logo.png';
 
-const Navbar = ({ onHomeClick }) => {
-    const homeButtonStyle = {
-        backgroundColor: '#dc3545', // Red background for testing
-        color: 'white',
-        border: 'none',
-        padding: '10px 20px',
-        fontSize: '16px',
-        cursor: 'pointer',
-        borderRadius: '4px',
-        transition: 'background 0.3s',
-        position: 'absolute',
-        top: '50%',
-        left: '10px',
-        transform: 'translateY(-50%)'
+function Navbar({ onSearch, onHomeClick }) {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
+        onSearch(e.target.value);
+    };
+
+    const handleHomeClick = () => {
+        onHomeClick();
     };
 
     return (
         <nav className="navbar">
-            <button style={homeButtonStyle} onClick={onHomeClick}>Home</button>
-            {/* Other navbar items */}
+            <img src={logo} alt="Logo" className="navbar-logo" />
+            <ul className="navbar-menu">
+                <li><a href="/" onClick={(e) => { e.preventDefault(); handleHomeClick(); }}>Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div className="navbar-search">
+                <input
+                    type="text"
+                    placeholder="Search by Registration Number"
+                    value={searchTerm}
+                    onChange={handleSearchChange}
+                />
+            </div>
         </nav>
     );
-};
+}
 
 export default Navbar;

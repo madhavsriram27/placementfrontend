@@ -1,29 +1,31 @@
 /* Vertical Nav Styles */
 .vertical-nav {
+    top: 77px !important;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #28a745; /* Green background color */
-    padding: 20px;
+    background-color: #34e35d !important; /* Green background color */
+    padding: 10px; /* Adjusted padding */
     width: 220px; /* Width of the vertical nav */
-    height: 100vh; /* Full viewport height */
+    height: calc(100vh - 60px) !important; /* Adjusted height to account for the top navbar height */
     position: fixed; /* Fixed position */
-    top: 0;
+    top: 60px; /* Position it slightly down from the top (height of the top navbar) */
     left: 0;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
     z-index: 1000; /* Ensure it is above other content */
+    overflow: hidden; /* Hide overflow */
 }
 
 .vertical-nav button,
 .vertical-nav select {
-    margin: 10px 0;
-    padding: 10px;
+    margin: 10px 0; /* Increased margin for more spacing */
+    padding: 10px 15px; /* Increased padding for larger buttons */
     border: none;
     background: #fff;
     color: #000;
     cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 6px; /* Increased border radius for rounded corners */
+    font-size: 14px; /* Increased font size */
     transition: background 0.3s;
 }
 
@@ -34,6 +36,6 @@
 
 /* Select Styling */
 .vertical-nav select {
-    width: 100%;
+    width: auto; /* Auto width to fit content */
     background: #fff;
 }

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import './styles/App.css';
+import Navbar from './components/Navbar';
 import StudentList from './components/StudentList';
 import CompanyList from './components/CompanyList';
 import Login from './components/Login';
 import Register from './components/Register';
-import Navbar from './components/Navbar';
 import VerticalNavBar from './components/VerticalNavBar';
-import StudentCard from './components/StudentCard';
-import './styles/App.css';
+import Stats from './components/Stats';
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -14,7 +14,9 @@ function App() {
     const [filter, setFilter] = useState('all');
     const [year, setYear] = useState('2023');
     const [showCompanies, setShowCompanies] = useState(false);
-    const [showImages, setShowImages] = useState(false);
+    const [showStats, setShowStats] = useState(false);
+    const [showStudentList, setShowStudentList] = useState(false); // Manage student list visibility
+    const [searchTerm, setSearchTerm] = useState(''); // Define searchTerm state
 
     const handleRegister = (user) => {
         localStorage.setItem('registeredUser', JSON.stringify(user));
@@ -23,6 +25,8 @@ function App() {
 
     const toggleCompanyList = () => {
         setShowCompanies(!showCompanies);
+        setShowStats(false); // Hide stats when showing companies
+        setShowStudentList(false); // Hide student list when showing companies
     };
 
     const handleYearChange = (event) => {
@@ -31,14 +35,19 @@ function App() {
 
     const handleFilterChange = (newFilter) => {
         setFilter(newFilter);
-    };
-
-    const toggleHomeImages = () => {
-        setShowImages(!showImages);
+        setShowStudentList(true); // Show student list based on filter
+        setShowStats(false); // Hide stats when filtering students
+        setShowCompanies(false); // Hide companies list when filtering students
     };
 
     const handleHomeClick = () => {
-        setShowImages(!showImages);
+        setShowStats(true); // Show stats on Home button click
+        setShowCompanies(false); // Hide companies list
+        setShowStudentList(false); // Hide student list
+    };
+
+    const handleSearch = (term) => {
+        setSearchTerm(term);
     };
 
     if (!isLoggedIn) {
@@ -50,22 +59,18 @@ function App() {
 
     return (
         <div className="App">
-            <Navbar onHomeClick={handleHomeClick} />
+            <Navbar onSearch={handleSearch} onHomeClick={handleHomeClick} />
             <VerticalNavBar
                 onFilterChange={handleFilterChange}
                 onYearChange={handleYearChange}
                 toggleCompanyList={toggleCompanyList}
+                showCompanyList={showCompanies}
             />
             <div className="results-container">
+                {showStats && <Stats />}
                 {showCompanies && <CompanyList />}
-                <StudentList filter={filter} year={year} />
+                {showStudentList && <StudentList filter={filter} year={year} searchTerm={searchTerm} />}
             </div>
-            {showImages && (
-                <div className="image-container">
-                    <img src="/images/image1.jpg" alt="Image 1" />
-                    <img src="/images/image2.jpg" alt="Image 2" />
-                </div>
-            )}
         </div>
     );
 }

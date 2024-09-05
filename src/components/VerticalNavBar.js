@@ -1,7 +1,7 @@
 import React from 'react';
-import './VerticalNavBar.css'; // Import the CSS file for styling
+import './VerticalNavBar.css';
 
-function VerticalNavBar({ onFilterChange, onYearChange, toggleCompanyList }) {
+function VerticalNavBar({ onFilterChange, onYearChange, toggleCompanyList, showCompanyList }) {
     return (
         <div className="vertical-nav">
             <button onClick={() => onFilterChange('all')}>All Students</button>
@@ -13,7 +13,9 @@ function VerticalNavBar({ onFilterChange, onYearChange, toggleCompanyList }) {
                 <option value="2025">Year 2025</option>
                 <option value="2026">Year 2026</option>
             </select>
-            <button onClick={toggleCompanyList}>Toggle Companies Visited</button>
+            <button onClick={toggleCompanyList}>
+                {showCompanyList ? 'Hide Companies' : 'Companies Visited'}
+            </button>
         </div>
     );
 }
